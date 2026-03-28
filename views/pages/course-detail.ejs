@@ -1,0 +1,170 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<div class="page-hero" style="padding-bottom:0;">
+  <div class="container" style="position:relative;z-index:1;">
+    <!-- Breadcrumb -->
+    <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--text-muted);margin-bottom:24px;">
+      <a href="/" style="color:var(--text-muted);">Home</a>
+      <span>›</span>
+      <a href="/courses" style="color:var(--text-muted);">Courses</a>
+      <span>›</span>
+      <span style="color:var(--text-primary);"><%= course.title %></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start;padding-bottom:64px;">
+
+      <!-- Left: Info -->
+      <div>
+        <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
+          <span class="badge badge-purple"><%= course.category %></span>
+          <span class="badge badge-<%= course.level==='Beginner' ? 'teal' : 'amber' %>"><%= course.level %></span>
+        </div>
+        <h1 class="display-md" style="margin-bottom:20px;line-height:1.2;"><%= course.title %></h1>
+        <p class="muted body-lg" style="margin-bottom:28px;"><%= course.short_desc %></p>
+
+        <div style="display:flex;gap:28px;flex-wrap:wrap;margin-bottom:28px;padding:20px;background:rgba(127,119,221,0.06);border:1px solid var(--dark-border);border-radius:var(--radius-md);">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:1.2rem;">⏱</span>
+            <div>
+              <p style="font-size:0.72rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Duration</p>
+              <p style="font-weight:600;font-size:0.95rem;"><%= course.duration %></p>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:1.2rem;">📶</span>
+            <div>
+              <p style="font-size:0.72rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Level</p>
+              <p style="font-weight:600;font-size:0.95rem;"><%= course.level %></p>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:1.2rem;">👤</span>
+            <div>
+              <p style="font-size:0.72rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Mentor</p>
+              <p style="font-weight:600;font-size:0.95rem;"><%= course.mentor %></p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/contact?subject=Enroll: <%= course.title %>" class="btn btn-primary btn-lg">Enroll Now — <%= course.price %></a>
+          <a href="/contact" class="btn btn-outline">Ask a Question</a>
+        </div>
+      </div>
+
+      <!-- Right: Card -->
+      <div style="position:sticky;top:100px;">
+        <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);overflow:hidden;">
+          <div style="background:linear-gradient(135deg,var(--deep-nexus),var(--dark-surface));height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;">
+            ⚙️
+          </div>
+          <div style="padding:28px;">
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;">
+              <span style="font-size:2rem;font-weight:800;font-family:var(--font-display);color:var(--vora-purple);"><%= course.price %></span>
+              <span style="font-size:0.85rem;color:var(--text-muted);">one-time payment</span>
+            </div>
+            <a href="/contact?subject=Enroll: <%= course.title %>" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;">
+              Enroll Now →
+            </a>
+            <a href="/contact" class="btn btn-outline" style="width:100%;justify-content:center;">
+              Request Info
+            </a>
+            <div style="border-top:1px solid var(--dark-border);margin-top:20px;padding-top:20px;display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted);">
+                <span style="color:var(--skill-teal);">✓</span> Certificate of Completion
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted);">
+                <span style="color:var(--skill-teal);">✓</span> Lifetime Access to Materials
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted);">
+                <span style="color:var(--skill-teal);">✓</span> English & Bangla Support
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted);">
+                <span style="color:var(--skill-teal);">✓</span> Live Q&A Sessions
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Tabs Content -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start;">
+
+      <div>
+        <!-- Overview -->
+        <div style="margin-bottom:48px;">
+          <h2 class="section-title" style="margin-bottom:20px;">Course Overview</h2>
+          <p style="color:var(--text-muted);line-height:1.9;font-size:0.975rem;"><%= course.overview %></p>
+        </div>
+
+        <!-- Curriculum -->
+        <div style="margin-bottom:48px;">
+          <h2 class="section-title" style="margin-bottom:24px;">Curriculum</h2>
+          <% if (course.curriculum && course.curriculum.length) { %>
+          <% course.curriculum.forEach((mod, i) => { %>
+          <div class="curriculum-module">
+            <div class="curriculum-header">
+              <h4 style="font-size:0.975rem;"><%= mod.module %></h4>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:0.8rem;color:var(--text-muted);"><%= mod.lessons.length %> lessons</span>
+                <span class="curriculum-toggle" style="color:var(--vora-purple);font-size:1.1rem;font-weight:300;width:20px;text-align:center;"><%= i===0 ? '−' : '+' %></span>
+              </div>
+            </div>
+            <ul class="curriculum-lessons <%= i===0 ? 'open' : '' %>">
+              <% mod.lessons.forEach(lesson => { %>
+              <li><%= lesson %></li>
+              <% }) %>
+            </ul>
+          </div>
+          <% }) %>
+          <% } %>
+        </div>
+
+        <!-- FAQ -->
+        <% if (course.faq && course.faq.length) { %>
+        <div>
+          <h2 class="section-title" style="margin-bottom:24px;">Frequently Asked Questions</h2>
+          <div>
+            <% course.faq.forEach(item => { %>
+            <div class="faq-item">
+              <button class="faq-question">
+                <%= item.q %>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><%= item.a %></div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+      <!-- Mentor sidebar -->
+      <% if (mentor) { %>
+      <div style="position:sticky;top:100px;">
+        <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);padding:28px;">
+          <h3 style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;">Your Instructor</h3>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-main);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">👨‍💻</div>
+            <div>
+              <h4 style="font-weight:700;margin-bottom:4px;"><%= mentor.name %></h4>
+              <p style="font-size:0.8rem;color:var(--vora-purple);">Skillvora Expert</p>
+            </div>
+          </div>
+          <a href="/mentors/<%= mentor.id %>" class="btn btn-secondary" style="width:100%;justify-content:center;">View Full Profile →</a>
+        </div>
+      </div>
+      <% } %>
+
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <!-- SEO -->
+  <title><%= locals.title || 'Skillvora — AI Education & Agency' %></title>
+  <meta name="description" content="<%= locals.description || 'Skillvora is Bangladesh\'s premier AI Education & Agency platform. Learn Odoo, AI, and business automation.' %>"/>
+  <meta name="keywords" content="Skillvora, AI Education, Odoo Training, AI Agency, Bangladesh, ChatGPT, Machine Learning"/>
+  <meta name="author" content="Skillvora"/>
+  <link rel="canonical" href="<%= locals.siteUrl || '' %><%= locals.currentPath || '' %>"/>
+
+  <!-- OpenGraph -->
+  <meta property="og:title"       content="<%= locals.title || 'Skillvora — AI Education & Agency' %>"/>
+  <meta property="og:description" content="<%= locals.description || 'Skillvora is Bangladesh\'s premier AI Education & Agency.' %>"/>
+  <meta property="og:url"         content="<%= locals.siteUrl || '' %><%= locals.currentPath || '' %>"/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:image"       content="<%= locals.siteUrl || '' %>/images/og-image.png"/>
+  <meta property="og:site_name"   content="Skillvora"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="<%= locals.title || 'Skillvora' %>"/>
+  <meta name="twitter:description" content="<%= locals.description || 'AI Education & Agency' %>"/>
+  <meta name="twitter:image"       content="<%= locals.siteUrl || '' %>/images/og-image.png"/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png"/>
+  <link rel="apple-touch-icon"      href="/images/icon-512.png"/>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vora':  '#7F77DD',
+            'nexus': '#26215C',
+            'teal':  '#1D9E75',
+            'amber': '#EF9F27',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/style.css"/>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Skillvora",
+    "url": "<%= siteUrl %>",
+    "logo": "<%= siteUrl %>/images/logo.png",
+    "description": "AI Education & Agency platform in Bangladesh",
+    "address": { "@type": "PostalAddress", "addressCountry": "BD" },
+    "sameAs": [
+      "https://facebook.com/skillvora",
+      "https://linkedin.com/company/skillvora",
+      "https://youtube.com/@skillvora"
+    ]
+  }
+  </script>
+</head>
+<body>

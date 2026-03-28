@@ -1,0 +1,55 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<div class="page-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="section-label">Our Mentors</span>
+    <h1 class="display-lg" style="margin-bottom:16px;">
+      Learn from <span class="gradient-text">real experts</span>
+    </h1>
+    <p class="muted body-lg" style="max-width:520px;">
+      Our mentors are active industry practitioners — not just teachers. They bring real projects, real experience, and real results into every lesson.
+    </p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+      <% mentors.forEach((mentor, i) => { %>
+      <div class="mentor-card reveal">
+        <div class="mentor-photo-placeholder">👨‍💻</div>
+        <div class="mentor-body">
+          <p class="mentor-expertise"><%= mentor.expertise %></p>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:6px;"><%= mentor.name %></h3>
+          <p style="font-size:0.82rem;color:var(--vora-purple);margin-bottom:12px;font-weight:500;"><%= mentor.title %></p>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7;margin-bottom:16px;"><%= mentor.short_bio %></p>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+            <span class="badge badge-gray">⏳ <%= mentor.experience %></span>
+            <span class="badge badge-purple"><%= mentor.courses ? mentor.courses.length : 1 %> course<%= (mentor.courses && mentor.courses.length > 1) ? 's' : '' %></span>
+          </div>
+          <a href="/mentors/<%= mentor.slug %>" class="btn btn-secondary" style="width:100%;justify-content:center;">View Profile →</a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- Join as mentor CTA -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner" style="padding:48px 36px;">
+      <span class="section-label" style="margin-bottom:20px;">Become a Mentor</span>
+      <h2 class="section-title" style="margin-bottom:16px;">
+        Share your expertise with<br/><span class="gradient-text">thousands of learners</span>
+      </h2>
+      <p class="muted" style="margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;">
+        Are you an AI, ERP, or tech expert? Join Skillvora as a mentor and help shape the next generation of professionals in Bangladesh.
+      </p>
+      <a href="/contact?subject=Mentor Application" class="btn btn-primary btn-lg">Apply to Teach →</a>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,169 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<div class="page-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="section-label">Get In Touch</span>
+    <h1 class="display-lg" style="margin-bottom:16px;">
+      Let's <span class="gradient-text">talk</span>
+    </h1>
+    <p class="muted body-lg" style="max-width:500px;">
+      Whether you want to enroll in a course, start a project, or just have a question — we're here and always hungry to help.
+    </p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <% if (success) { %>
+    <div style="background:rgba(29,158,117,0.1);border:1px solid rgba(29,158,117,0.3);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:40px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:1.5rem;">✅</span>
+      <div>
+        <h4 style="font-weight:700;color:var(--skill-teal);margin-bottom:4px;">Message Sent!</h4>
+        <p style="color:var(--text-muted);font-size:0.9rem;">Thanks for reaching out. We'll get back to you within 24 hours.</p>
+      </div>
+    </div>
+    <% } %>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start;">
+
+      <!-- Form -->
+      <div>
+        <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:28px;">Send us a message</h2>
+        <form action="/contact" method="POST" class="contact-form">
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" name="name" class="form-input" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+880 1X-XXXX-XXXX"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <select name="subject" class="form-select form-input">
+                <option value="">Select a topic</option>
+                <option value="Course Enquiry" <%= (typeof success !== 'undefined' && success) ? '' : '' %>>Course Enquiry</option>
+                <option value="AI Consulting">AI Consulting</option>
+                <option value="Odoo ERP">Odoo ERP Implementation</option>
+                <option value="Partnership">Partnership</option>
+                <option value="Mentor Application">Become a Mentor</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message *</label>
+            <textarea name="message" class="form-textarea" placeholder="Tell us how we can help you..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+            Send Message →
+          </button>
+
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:12px;text-align:center;">
+            We typically respond within 24 hours on business days.
+          </p>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:12px;">Contact Information</h2>
+
+        <div class="contact-info-card">
+          <div class="contact-icon">📧</div>
+          <div>
+            <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Email</p>
+            <a href="mailto:hello@myskillvora.com" style="color:var(--vora-purple);font-weight:600;">hello@myskillvora.com</a>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">For general enquiries & courses</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-icon">📱</div>
+          <div>
+            <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Phone / WhatsApp</p>
+            <a href="tel:+8801XXXXXXXXX" style="color:var(--vora-purple);font-weight:600;">+880 1X-XXXX-XXXX</a>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">Sun – Thu, 9am – 6pm BST</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-icon">📍</div>
+          <div>
+            <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Location</p>
+            <p style="font-weight:600;">Dhaka, Bangladesh</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">Remote-first. Available nationwide.</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Website</p>
+            <a href="https://myskillvora.com" style="color:var(--vora-purple);font-weight:600;">myskillvora.com</a>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-lg);padding:24px;">
+          <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;">Follow Us</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="https://facebook.com/skillvora"  target="_blank" class="btn btn-outline btn-sm">Facebook</a>
+            <a href="https://linkedin.com/company/skillvora" target="_blank" class="btn btn-outline btn-sm">LinkedIn</a>
+            <a href="https://youtube.com/@skillvora"  target="_blank" class="btn btn-outline btn-sm">YouTube</a>
+            <a href="https://instagram.com/skillvora" target="_blank" class="btn btn-outline btn-sm">Instagram</a>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--dark-border);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233668.36730834524!2d90.27923956503906!3d23.780573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
+            width="100%" height="220" style="border:0;display:block;filter:invert(90%) hue-rotate(180deg);"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ quick links -->
+<section class="section-sm" style="border-top:1px solid var(--dark-border);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px;">
+      <h3 class="section-title">Common questions</h3>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;">
+      <% const faqLinks=[
+        {q:'How do I enroll in a course?',href:'/courses'},
+        {q:'Do you offer group training?',href:'/contact?subject=Group Training'},
+        {q:'What is your refund policy?',href:'/contact?subject=Refund Policy'},
+        {q:'Are courses available in Bangla?',href:'/courses'},
+        {q:'How does AI consulting work?',href:'/agency'},
+        {q:'Do you offer corporate packages?',href:'/contact?subject=Corporate Package'},
+      ]; %>
+      <% faqLinks.forEach(f => { %>
+      <a href="<%= f.href %>" style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-md);padding:16px 20px;font-size:0.875rem;color:var(--text-muted);transition:all 0.2s;display:block;" onmouseover="this.style.borderColor='rgba(127,119,221,0.35)';this.style.color='var(--text-primary)'" onmouseout="this.style.borderColor='var(--dark-border)';this.style.color='var(--text-muted)'">
+        <%= f.q %> <span style="color:var(--vora-purple);">→</span>
+      </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

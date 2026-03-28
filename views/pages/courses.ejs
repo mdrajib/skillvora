@@ -1,0 +1,102 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="section-label">All Courses</span>
+    <h1 class="display-lg" style="margin-bottom:16px;">
+      Explore <span class="gradient-text">our courses</span>
+    </h1>
+    <p class="muted body-lg" style="max-width:520px;">
+      Practical, expert-led courses in AI, Odoo ERP, and business automation — designed for real results.
+    </p>
+  </div>
+</div>
+
+<!-- Filters -->
+<section style="padding:32px 0;border-bottom:1px solid var(--dark-border);background:rgba(30,26,60,0.4);">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <span style="font-size:0.85rem;color:var(--text-muted);font-weight:600;">Filter by:</span>
+      <a href="/courses" class="badge <%= !category && !level ? 'badge-purple' : 'badge-gray' %>" style="padding:8px 16px;cursor:pointer;text-decoration:none;">All</a>
+      <a href="/courses?category=AI"  class="badge <%= category==='AI'  ? 'badge-purple' : 'badge-gray' %>" style="padding:8px 16px;cursor:pointer;text-decoration:none;">AI</a>
+      <a href="/courses?category=ERP" class="badge <%= category==='ERP' ? 'badge-purple' : 'badge-gray' %>" style="padding:8px 16px;cursor:pointer;text-decoration:none;">ERP</a>
+      <div style="width:1px;height:20px;background:var(--dark-border);margin:0 4px;"></div>
+      <a href="/courses?level=Beginner"     class="badge <%= level==='Beginner'     ? 'badge-teal' : 'badge-gray' %>" style="padding:8px 16px;cursor:pointer;text-decoration:none;">Beginner</a>
+      <a href="/courses?level=Intermediate" class="badge <%= level==='Intermediate' ? 'badge-teal' : 'badge-gray' %>" style="padding:8px 16px;cursor:pointer;text-decoration:none;">Intermediate</a>
+      <a href="/courses?level=Advanced"     class="badge <%= level==='Advanced'     ? 'badge-teal' : 'badge-gray' %>" style="padding:8px 16px;cursor:pointer;text-decoration:none;">Advanced</a>
+    </div>
+  </div>
+</section>
+
+<!-- Course Grid -->
+<section class="section">
+  <div class="container">
+
+    <% if (courses.length === 0) { %>
+    <div style="text-align:center;padding:80px 0;">
+      <div style="font-size:3rem;margin-bottom:16px;">🔍</div>
+      <h3 style="font-size:1.2rem;margin-bottom:12px;">No courses found</h3>
+      <p class="muted">Try a different filter or <a href="/courses" style="color:var(--vora-purple);">view all courses</a>.</p>
+    </div>
+    <% } else { %>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;">
+      <p class="muted"><span style="color:var(--text-primary);font-weight:600;"><%= courses.length %></span> courses found</p>
+    </div>
+
+    <div class="grid-3">
+      <% courses.forEach((course, i) => { %>
+      <div class="card course-card reveal">
+        <div class="card-img-placeholder">
+          <% const icons = {'ERP':'⚙️','AI':'🤖','DEFAULT':'📚'}; %>
+          <%= icons[course.category] || icons.DEFAULT %>
+        </div>
+        <div class="card-body">
+          <div class="course-meta">
+            <span class="badge badge-purple"><%= course.category %></span>
+            <span class="badge badge-<%= course.level==='Beginner' ? 'teal' : course.level==='Intermediate' ? 'amber' : 'gray' %>">
+              <%= course.level %>
+            </span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;line-height:1.4;">
+            <%= course.title %>
+          </h3>
+          <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:16px;line-height:1.7;">
+            <%= course.short_desc %>
+          </p>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:0.8rem;color:var(--text-muted);border-top:1px solid var(--dark-border);padding-top:16px;">
+            <span>⏱ <%= course.duration %></span>
+            <span>👤 <%= course.mentor %></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:1.15rem;font-weight:700;color:var(--vora-purple);font-family:var(--font-display);">
+              <%= course.price %>
+            </span>
+            <a href="/courses/<%= course.slug %>" class="btn btn-primary btn-sm">View Course</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+    <% } %>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner" style="padding:48px 36px;">
+      <h2 class="section-title" style="margin-bottom:16px;">
+        Can't find what you need?<br/><span class="gradient-text">We offer custom training too.</span>
+      </h2>
+      <p class="muted" style="margin-bottom:28px;">Contact us for corporate training, custom curriculum, or group enrolments.</p>
+      <a href="/contact" class="btn btn-primary">Get in Touch →</a>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

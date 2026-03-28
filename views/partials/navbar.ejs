@@ -1,0 +1,56 @@
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+
+    <!-- Logo -->
+    <a href="/" class="navbar-logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <line x1="4" y1="3" x2="11" y2="17" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <line x1="18" y1="3" x2="11" y2="17" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="4"  cy="3"  r="2.2" fill="white" opacity="0.9"/>
+          <circle cx="18" cy="3"  r="2.2" fill="white" opacity="0.9"/>
+          <circle cx="11" cy="10" r="2.5" fill="#1D9E75"/>
+          <circle cx="7"  cy="7"  r="1.6" fill="#EF9F27" opacity="0.85"/>
+          <circle cx="15" cy="7"  r="1.6" fill="#EF9F27" opacity="0.85"/>
+          <circle cx="11" cy="17" r="2.8" fill="white"/>
+          <circle cx="11" cy="17" r="1.4" fill="#26215C"/>
+        </svg>
+      </div>
+      <span class="logo-text">Skill<span>vora</span></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="navbar-nav">
+      <li><a href="/"         class="<%= currentPath === '/'         ? 'active' : '' %>">Home</a></li>
+      <li><a href="/courses"  class="<%= currentPath.startsWith('/courses')  ? 'active' : '' %>">Courses</a></li>
+      <li><a href="/mentors"  class="<%= currentPath.startsWith('/mentors')  ? 'active' : '' %>">Mentors</a></li>
+      <li><a href="/agency"   class="<%= currentPath.startsWith('/agency')   ? 'active' : '' %>">AI Agency</a></li>
+      <li><a href="/about"    class="<%= currentPath.startsWith('/about')    ? 'active' : '' %>">About</a></li>
+      <li><a href="/contact"  class="<%= currentPath.startsWith('/contact')  ? 'active' : '' %>">Contact</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <a href="/courses" class="btn btn-primary btn-sm">Explore Courses →</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul class="mobile-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/courses">Courses</a></li>
+      <li><a href="/mentors">Mentors</a></li>
+      <li><a href="/agency">AI Agency</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <a href="/courses" class="btn btn-primary" style="width:100%;justify-content:center;">Explore Courses →</a>
+  </div>
+</nav>

@@ -1,0 +1,167 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container" style="position:relative;z-index:1;text-align:center;max-width:760px;margin:0 auto;">
+    <span class="section-label">Our Story</span>
+    <h1 class="display-lg" style="margin-bottom:20px;">
+      Born from hunger.<br/><span class="gradient-text">Built for Bangladesh.</span>
+    </h1>
+    <p class="muted body-lg">
+      Every great brand begins with a hunger — a deep, relentless desire to change something in the world. Skillvora was born from exactly that.
+    </p>
+  </div>
+</div>
+
+<!-- Brand Story -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px;">
+      <div class="reveal">
+        <span class="section-label">The Story</span>
+        <h2 class="section-title" style="margin-bottom:24px;">Why <span class="gradient-text">Skillvora exists</span></h2>
+        <p style="color:var(--text-muted);line-height:1.9;margin-bottom:20px;">
+          Bangladesh is a nation of brilliant, ambitious minds. Every year, thousands of students graduate, professionals upskill, and entrepreneurs start ventures. Yet when it comes to Artificial Intelligence — the technology reshaping every industry — many are left behind.
+        </p>
+        <p style="color:var(--text-muted);line-height:1.9;margin-bottom:20px;">
+          Not because they lack capability. But because the right guidance, the right skills, and the right agency support simply weren't there.
+        </p>
+        <p style="color:var(--text-muted);line-height:1.9;">
+          <strong style="color:var(--text-primary);">Skillvora exists to change that.</strong> We are an AI Education and Agency platform built for Bangladesh — and built for the world.
+        </p>
+      </div>
+      <div class="reveal">
+        <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);padding:40px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-main);"></div>
+          <div style="font-size:3rem;margin-bottom:20px;">💡</div>
+          <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:16px;font-family:var(--font-display);">Our Core Belief</h3>
+          <p style="font-size:1.05rem;color:var(--text-muted);line-height:1.9;font-style:italic;">
+            "Knowledge is not enough. You have to devour it — hungrily, relentlessly, and without apology."
+          </p>
+          <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--dark-border);">
+            <p style="font-size:0.85rem;color:var(--text-muted);">
+              The name <strong style="color:var(--vora-purple);">Skillvora</strong> says everything. "Skill" = mastery. "Vora" from Latin <em>vorare</em> = to devour eagerly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:80px;">
+      <div class="reveal" style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);padding:40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--vora-purple);"></div>
+        <div style="font-size:2rem;margin-bottom:20px;">🎯</div>
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:16px;color:var(--vora-purple);">Our Mission</h3>
+        <p style="color:var(--text-muted);line-height:1.9;">
+          To democratise AI education and agency services in Bangladesh — empowering every student, professional, and business to devour the skills they need to lead in the age of Artificial Intelligence.
+        </p>
+      </div>
+      <div class="reveal" style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);padding:40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--skill-teal);"></div>
+        <div style="font-size:2rem;margin-bottom:20px;">🔭</div>
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:16px;color:var(--skill-teal);">Our Vision</h3>
+        <p style="color:var(--text-muted);line-height:1.9;">
+          To become the most trusted AI education and agency brand in South Asia — the first name people think of when they want to learn AI, build AI solutions, or grow their business with AI.
+        </p>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div style="text-align:center;max-width:520px;margin:0 auto 48px;">
+      <span class="section-label">Our Values</span>
+      <h2 class="section-title">What drives <span class="gradient-text">everything we do</span></h2>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:80px;">
+      <% const values = [
+        {icon:'🔥',title:'Hunger',color:'var(--vora-purple)',desc:'We pursue knowledge and results with relentless energy. We never settle for mediocrity.'},
+        {icon:'💎',title:'Clarity',color:'var(--skill-teal)',desc:'We make AI simple, accessible, and understandable for everyone, regardless of background.'},
+        {icon:'📈',title:'Impact',color:'var(--hunger-amber)',desc:'Every course and project must produce real, measurable results. No fluff, only value.'},
+        {icon:'🤝',title:'Integrity',color:'var(--vora-purple)',desc:'We are honest, transparent, and always put our community first.'},
+        {icon:'⚡',title:'Innovation',color:'var(--skill-teal)',desc:'We stay at the cutting edge — always learning, always evolving, always ahead.'},
+        {icon:'🌏',title:'Community',color:'var(--hunger-amber)',desc:'We build together. Our success is the success of every learner and partner we serve.'},
+      ]; %>
+      <% values.forEach((v,i) => { %>
+      <div class="value-card reveal">
+        <div class="value-icon"><%= v.icon %></div>
+        <h4 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;color:<%= v.color %>;"><%= v.title %></h4>
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.8;"><%= v.desc %></p>
+      </div>
+      <% }) %>
+    </div>
+
+    <!-- Why Skillvora -->
+    <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);padding:56px;margin-bottom:32px;position:relative;overflow:hidden;" class="reveal">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-main);"></div>
+      <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:center;">
+        <div>
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title">Why <span class="gradient-text">Skillvora?</span></h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <% const reasons=[
+            {icon:'✓',title:'Official Odoo Ready Partner',desc:'Bangladesh's authorised Odoo implementation and training partner.'},
+            {icon:'✓',title:'Real Practitioners',desc:'Our mentors run live projects — not just academics teaching theory.'},
+            {icon:'✓',title:'Bilingual Support',desc:'Full English and Bangla support for every learner and client.'},
+            {icon:'✓',title:'End-to-End',desc:'From learning to implementation — we cover the full journey.'},
+          ]; %>
+          <% reasons.forEach(r => { %>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="width:28px;height:28px;background:rgba(29,158,117,0.15);border:1px solid rgba(29,158,117,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--skill-teal);font-weight:700;flex-shrink:0;"><%= r.icon %></div>
+            <div>
+              <h5 style="font-weight:700;font-size:0.95rem;margin-bottom:4px;"><%= r.title %></h5>
+              <p style="font-size:0.85rem;color:var(--text-muted);"><%= r.desc %></p>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Team / Culture -->
+<section class="section" style="background:rgba(30,26,60,0.3);border-top:1px solid var(--dark-border);">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 48px;">
+      <span class="section-label">Our Culture</span>
+      <h2 class="section-title">A team that <span class="gradient-text">devours challenges</span></h2>
+      <p class="muted" style="margin-top:16px;">We're a small but mighty team of engineers, educators, and AI enthusiasts from Bangladesh — united by one mission.</p>
+    </div>
+
+    <div class="grid-3">
+      <% const culture=[
+        {icon:'🇧🇩',title:'Bangladesh First',desc:'We build for local needs, with local understanding, in both English and Bangla.'},
+        {icon:'🔬',title:'Always Learning',desc:'We practice what we teach — our team is constantly upskilling and experimenting with new AI tools.'},
+        {icon:'❤️',title:'Community Driven',desc:'We give back through free content, workshops, and university partnerships across Bangladesh.'},
+      ]; %>
+      <% culture.forEach(c => { %>
+      <div class="value-card reveal" style="text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:16px;"><%= c.icon %></div>
+        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:12px;"><%= c.title %></h4>
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.8;"><%= c.desc %></p>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2 class="section-title" style="margin-bottom:20px;">
+        Join the movement.<br/><span class="gradient-text">Devour skills with us.</span>
+      </h2>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="/courses" class="btn btn-primary btn-lg">Explore Courses →</a>
+        <a href="/contact" class="btn btn-outline btn-lg">Work With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>
