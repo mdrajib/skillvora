@@ -31,7 +31,7 @@
 
 /* ── Reset ────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 body {
   font-family: var(--font-body);
   background: var(--dark-bg);
@@ -708,8 +708,14 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); font-weight: 700; line-hei
   .hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .trust-bar-inner { gap: 28px; }
+  .trust-bar-inner { gap: 12px 16px; flex-wrap: wrap; justify-content: center; overflow-x: visible; padding-bottom: 0; }
+  .trust-item { flex: 0 0 calc(50% - 8px); justify-content: center; white-space: normal; }
+  .trust-item[style*="dark-border"] { display: none; }
   .hero-cta .btn-lg { width: 100%; justify-content: center; }
+  /* Collapse all inline multi-column grids to single column */
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  /* Remove stagger offset on service cards when stacked */
+  .service-card[style*="margin-top"] { margin-top: 0 !important; }
 }
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
