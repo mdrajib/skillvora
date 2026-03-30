@@ -18,7 +18,13 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
       <% mentors.forEach((mentor, i) => { %>
       <div class="mentor-card reveal">
-        <div class="mentor-photo-placeholder">👨‍💻</div>
+        <div class="mentor-photo-placeholder" style="overflow:hidden;">
+          <% if (mentor.photo) { %>
+            <img src="/images/mentors/<%= mentor.photo %>" alt="<%= mentor.name %>" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <% } else { %>
+            👨‍💻
+          <% } %>
+        </div>
         <div class="mentor-body">
           <p class="mentor-expertise"><%= mentor.expertise %></p>
           <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:6px;"><%= mentor.name %></h3>
@@ -27,7 +33,7 @@
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
             <span class="badge badge-gray">⏳ <%= mentor.experience %></span>
             <span class="badge badge-purple"><%= mentor.courses ? mentor.courses.length : 1 %> course<%= (mentor.courses && mentor.courses.length > 1) ? 's' : '' %></span>
-          </div>
+          </div> 
           <a href="/mentors/<%= mentor.slug %>" class="btn btn-secondary" style="width:100%;justify-content:center;">View Profile →</a>
         </div>
       </div>

@@ -337,7 +337,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); font-weight: 700; line-hei
 }
 .hero-eyebrow span { color: var(--hunger-amber); }
 .hero-title { margin-bottom: 24px; }
-.hero-title em { font-style: normal; }
+.hero-title em { font-style: normal; display: block; min-height: 1.2em; }
 .hero-desc {
   font-size: 1.15rem;
   color: var(--text-muted);
@@ -346,7 +346,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); font-weight: 700; line-hei
   line-height: 1.8;
 }
 .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
-.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; justify-content: flex-start; }
 .stat-item { display: flex; flex-direction: column; gap: 4px; }
 .stat-number {
   font-family: var(--font-display);

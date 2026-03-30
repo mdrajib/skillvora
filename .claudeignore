@@ -1,0 +1,17 @@
+# Dependencies — largest token sink, never useful to read
+node_modules/
+
+# Lock file — auto-generated, no value to Claude
+package-lock.json
+
+# Database seed/schema — one-time reference, summarised in CLAUDE.md
+database.sql
+
+# Environment file — credentials should not be read unnecessarily
+.env
+
+# Static images — binary files Claude cannot use
+public/images/
+
+# README — content already captured in CLAUDE.md
+README.md

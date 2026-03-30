@@ -42,13 +42,13 @@
             <span style="font-size:1.2rem;">👤</span>
             <div>
               <p style="font-size:0.72rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Mentor</p>
-              <p style="font-weight:600;font-size:0.95rem;"><%= course.mentor %></p>
+              <p style="font-weight:600;font-size:0.95rem;"><%= mentor ? mentor.name : 'N/A' %></p>
             </div>
           </div>
         </div>
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="/contact?subject=Enroll: <%= course.title %>" class="btn btn-primary btn-lg">Enroll Now — <%= course.price %></a>
+          <a href="/contact?subject=Enroll: <%= course.title %>" class="btn btn-primary btn-lg">Enroll Now — ৳ <%= Number(course.price).toLocaleString() %></a>
           <a href="/contact" class="btn btn-outline">Ask a Question</a>
         </div>
       </div>
@@ -61,7 +61,7 @@
           </div>
           <div style="padding:28px;">
             <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;">
-              <span style="font-size:2rem;font-weight:800;font-family:var(--font-display);color:var(--vora-purple);"><%= course.price %></span>
+              <span style="font-size:2rem;font-weight:800;font-family:var(--font-display);color:var(--vora-purple);">৳ <%= Number(course.price).toLocaleString() %></span>
               <span style="font-size:0.85rem;color:var(--text-muted);">one-time payment</span>
             </div>
             <a href="/contact?subject=Enroll: <%= course.title %>" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;">
@@ -101,7 +101,7 @@
         <!-- Overview -->
         <div style="margin-bottom:48px;">
           <h2 class="section-title" style="margin-bottom:20px;">Course Overview</h2>
-          <p style="color:var(--text-muted);line-height:1.9;font-size:0.975rem;"><%= course.overview %></p>
+          <p style="color:var(--text-muted);line-height:1.9;font-size:0.975rem;"><%= course.description || course.short_desc %></p>
         </div>
 
         <!-- Curriculum -->
@@ -152,13 +152,19 @@
         <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);padding:28px;">
           <h3 style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;">Your Instructor</h3>
           <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-main);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">👨‍💻</div>
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-main);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;overflow:hidden;">
+              <% if (mentor.photo) { %>
+                <img src="/images/mentors/<%= mentor.photo %>" alt="<%= mentor.name %>" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+              <% } else { %>
+                👨‍💻
+              <% } %>
+            </div>
             <div>
               <h4 style="font-weight:700;margin-bottom:4px;"><%= mentor.name %></h4>
               <p style="font-size:0.8rem;color:var(--vora-purple);">Skillvora Expert</p>
             </div>
           </div>
-          <a href="/mentors/<%= mentor.id %>" class="btn btn-secondary" style="width:100%;justify-content:center;">View Full Profile →</a>
+          <a href="/mentors/<%= mentor.slug %>" class="btn btn-secondary" style="width:100%;justify-content:center;">View Full Profile →</a>
         </div>
       </div>
       <% } %>

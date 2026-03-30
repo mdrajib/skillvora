@@ -10,7 +10,13 @@
     </div>
 
     <div style="display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;max-width:900px;">
-      <div style="width:160px;height:160px;border-radius:var(--radius-xl);background:linear-gradient(135deg,var(--deep-nexus),var(--dark-surface));display:flex;align-items:center;justify-content:center;font-size:4rem;border:2px solid var(--dark-border);flex-shrink:0;">👨‍💻</div>
+      <div style="width:160px;height:160px;border-radius:var(--radius-xl);background:linear-gradient(135deg,var(--deep-nexus),var(--dark-surface));display:flex;align-items:center;justify-content:center;font-size:4rem;border:2px solid var(--dark-border);flex-shrink:0;overflow:hidden;">
+        <% if (mentor.photo) { %>
+          <img src="/images/mentors/<%= mentor.photo %>" alt="<%= mentor.name %>" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        <% } else { %>
+          👨‍💻
+        <% } %>
+      </div>
       <div>
         <p class="mentor-expertise" style="font-size:0.85rem;margin-bottom:8px;"><%= mentor.expertise %></p>
         <h1 style="font-size:2.2rem;font-weight:800;font-family:var(--font-display);margin-bottom:8px;"><%= mentor.name %></h1>
@@ -41,9 +47,12 @@
         <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:20px;">Courses by <%= mentor.name %></h2>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <% mentor.courses.forEach(c => { %>
-          <a href="/courses" style="display:flex;align-items:center;gap:16px;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-md);padding:16px 20px;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(127,119,221,0.3)'" onmouseout="this.style.borderColor='var(--dark-border)'">
-            <span style="font-size:1.5rem;">📚</span>
-            <span style="font-weight:600;"><%= c %></span>
+          <a href="/courses/<%= c.slug %>" style="display:flex;align-items:center;gap:16px;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-md);padding:16px 20px;transition:all 0.2s;text-decoration:none;" onmouseover="this.style.borderColor='rgba(127,119,221,0.3)'" onmouseout="this.style.borderColor='var(--dark-border)'">
+            <span style="font-size:1.5rem;"><%= c.category === 'AI' ? '🤖' : '⚙️' %></span>
+            <div style="flex:1;">
+              <div style="font-weight:600;margin-bottom:4px;"><%= c.title %></div>
+              <div style="font-size:0.8rem;color:var(--text-muted);"><%= c.short_desc %></div>
+            </div>
             <span style="margin-left:auto;color:var(--vora-purple);">→</span>
           </a>
           <% }) %>

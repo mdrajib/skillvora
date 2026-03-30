@@ -114,7 +114,7 @@
           <p style="font-size:0.85rem;color:var(--text-muted);">Implement AI solutions that transform your business</p>
         </div>
         <div class="service-card" style="padding:24px;">
-          <div class="service-icon">⚙️</div>
+          <div class="service-icon">🟣</div>
           <h4 style="font-size:1rem;margin-bottom:8px;">Odoo ERP</h4>
           <p style="font-size:0.85rem;color:var(--text-muted);">Official Odoo partner for implementation & support</p>
         </div>
@@ -146,7 +146,7 @@
       <% featuredCourses.forEach((course, i) => { %>
       <div class="card course-card reveal" style="animation-delay:<%=i*0.1%>s">
         <div class="card-img-placeholder">
-          <% const icons = {'ERP':'⚙️','AI':'🤖','DEFAULT':'📚'}; %>
+          <% const icons = {'ERP':'⚙️','AI':'🤖','DEFAULT':'📚', 'OdooERP':'🟣'}; %>
           <%= icons[course.category] || icons.DEFAULT %>
         </div>
         <div class="card-body">
@@ -162,11 +162,11 @@
           </p>
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.8rem;color:var(--text-muted);">
             <span>⏱ <%= course.duration %></span>
-            <span>👤 <%= course.mentor %></span>
+            <span>👤 <%= course.mentor ? course.mentor.name : 'N/A' %></span>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;">
             <span style="font-size:1.1rem;font-weight:700;color:var(--vora-purple);font-family:var(--font-display);">
-              <%= course.price %>
+              ৳ <%= Number(course.price).toLocaleString() %>
             </span>
             <a href="/courses/<%= course.slug %>" class="btn btn-primary btn-sm">Enroll Now</a>
           </div>
@@ -191,7 +191,13 @@
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:720px;margin:0 auto;">
       <% featuredMentors.forEach((mentor, i) => { %>
       <div class="mentor-card reveal" style="animation-delay:<%=i*0.15%>s">
-        <div class="mentor-photo-placeholder">👨‍💻</div>
+        <div class="mentor-photo-placeholder" style="overflow:hidden;">
+          <% if (mentor.photo) { %>
+            <img src="/images/mentors/<%= mentor.photo %>" alt="<%= mentor.name %>" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <% } else { %>
+            👨‍💻
+          <% } %>
+        </div>
         <div class="mentor-body">
           <p class="mentor-expertise"><%= mentor.expertise %></p>
           <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:6px;"><%= mentor.name %></h3>

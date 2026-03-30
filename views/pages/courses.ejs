@@ -50,7 +50,7 @@
       <% courses.forEach((course, i) => { %>
       <div class="card course-card reveal">
         <div class="card-img-placeholder">
-          <% const icons = {'ERP':'⚙️','AI':'🤖','DEFAULT':'📚'}; %>
+          <% const icons = {'OdooERP':'🟣','ERP':'⚙️','AI':'🤖','DEFAULT':'📚'}; %>
           <%= icons[course.category] || icons.DEFAULT %>
         </div>
         <div class="card-body">
@@ -68,11 +68,11 @@
           </p>
           <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:0.8rem;color:var(--text-muted);border-top:1px solid var(--dark-border);padding-top:16px;">
             <span>⏱ <%= course.duration %></span>
-            <span>👤 <%= course.mentor %></span>
+            <span>👤 <%= course.mentor ? course.mentor.name : 'N/A' %></span>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;">
             <span style="font-size:1.15rem;font-weight:700;color:var(--vora-purple);font-family:var(--font-display);">
-              <%= course.price %>
+              ৳ <%= Number(course.price).toLocaleString() %>
             </span>
             <a href="/courses/<%= course.slug %>" class="btn btn-primary btn-sm">View Course</a>
           </div>
